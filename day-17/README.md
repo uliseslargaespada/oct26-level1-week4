@@ -1,4 +1,4 @@
-# Day 17 optional investigation: find the stale seat count
+# Day 17 investigation: find the stale seat count
 
 Use after the core individual program or as a TA-guided recovery. Run `node starter.js` from this folder. This is an original practice example, not a substitute for your own core work.
 
