@@ -73,21 +73,21 @@ if (registeredPeople >= venueCapacity) {
 // == -> just the value
 console.log("Is 15 equal to 15?: ", "15" === 15);
 
-registeredPeople = 105;
+registeredPeople = 90;
 
 // if (registeredPeople > venueCapacity) {
 //   console.log("You're buying more than what we can sell");
 //   return;
 // }
 
-/* if/else statements can be nested */
-if (registeredPeople < venueCapacity) {
-  console.log("Venue is not full, you can buy a ticket");
-} else if (registeredPeople === venueCapacity) {
-  console.log("Venue is at max capacity, no more tickets");
-} else {
-  console.log("Venue is over capacity, no more tickets");
-}
+// /* if/else statements can be nested */
+// if (registeredPeople < venueCapacity) {
+//   console.log("Venue is not full, you can buy a ticket");
+// } else if (registeredPeople === venueCapacity) {
+//   console.log("Venue is at max capacity, no more tickets");
+// } else {
+//   console.log("Venue is over capacity, no more tickets");
+// }
 
 
 // NOT statement
@@ -96,3 +96,37 @@ if ((10 > 9)) {
 } else {
   console.log("Value got negated");
 }
+
+/* FUNCTIONS */
+// Functions are a block of reusable code
+// function -> keyword to declare a function
+// Parameters -> these are values that you send to the function
+function getSeatsLeft(capacity, registered) {
+  // Hard validations
+  if (typeof capacity === "string" || typeof registered === "string") {
+    throw Error("Incorrect type for function getSeatsLeft");
+  }
+
+  const seatsLeft = capacity - registered;
+
+  return seatsLeft;
+}
+
+
+// Then you need to call the function
+console.log("Amount of seats left: ", getSeatsLeft(200, 80));
+
+function getRegistrationStatus(capacity, registered, isOpen) {
+  const seatsLeft = getSeatsLeft(capacity, registered);
+
+  // If isOpen is false, we say that the registration is closed
+  if (!isOpen) {
+    return "Registration is closed.";
+  } else if (seatsLeft > 0) {
+    return "Seats available.";
+  } else {
+    return "Activity is full.";
+  }
+}
+
+console.log("Are there seats available?", getRegistrationStatus(200, 100, true));
